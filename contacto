@@ -1,0 +1,136 @@
+	
+NUEVO 
+.
+Ruta de carpeta
+Mi unidad
+1r Curs ASIX
+LLMA - Llenguatge de marques i sistema de gestió
+Hotel Contacto
+Carpetas y vistas
+Mi unidad
+Compartido conmigo
+Reciente
+Google Fotos
+Destacado
+Papelera
+Copias de seguridad
+1 GB de 15 GB utilizados
+Adquirir más almacenamiento
+ÚLTIMA MODIFICACIÓN 
+Archivos
+.
+
+Imagen
+twitter.jpg
+
+Imagen
+portatil.jpg
+
+Imagen
+instragram.jpg
+
+Imagen
+gmail.jpg
+
+Imagen
+facebook.png
+
+Imagen
+difuminado.jpg
+
+HTML
+contacto.html
+
+Imagen
+camino.jpg
+Nueva unidad de equipo
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hotel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  <style>
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+      body{
+          background-image: url(difuminado.jpg);
+      }
+    
+    footer {
+      background-color:burlywood;
+      padding: 25px;
+      height: auto;
+    }
+      
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="web.html">San Jose</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="Descripcion.html">Descripción</a></li>
+        <li><a href="Alojamientos.html">Alojamientos</a></li>
+        <li><a href="Contacto.html">Contacto</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<img src="portatil.jpg" alt="Image" width="100%" height="400px">      
+
+<div class="container text-center">  
+  <h2>Información de contacto</h2><br>
+  <div class="row">
+   <div class="col-sm-4">
+        <h4><strong>¡CONTACTE CON NOSOTROS!</strong></h4>
+        <p><strong>Vía Email</strong>: HSanJose@gmail.com</p>
+        <p><strong>Vía Skype</strong>: HSanJose</p>
+        <p><strong>Vía telefónica</strong>:+34 678 95 43 76</p>
+      </div>
+      <div class="col-sm-4">
+            <img src=camino.jpg alt="image" width="100%" height="250px" >
+
+      </div>
+    <div class="col-sm-4"> 
+        <h4><strong>CÓMO LLEGAR</strong></h4>
+        <p>Mallorca se encuentra a menos de dos horas en avión desde las principales ciudades europeas y se puede llegar fácilmente a la isla desde Madrid y Barcelona. El Aeropuerto Internacional de Palma es el aeropuerto más cercano, situado a unos 50 km (45 minutos en coche) de Hotel San Jose.
+
+Además, hay taxis disponibles en el aeropuerto y en Palma. Y si lo desea, también puede programar el traslado al reservar en línea.</p>
+      
+    </div>
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+   <div class="col-sm-12">
+      <h3>Síguenos</h3>
+           <a title="Facebook" href="http://www.facebook.com"><img src="facebook.png" height="50px" width="50px"></a>
+     <a title="Instagram" href="http://www.instragram.com"><img src="instragram.jpg" height="50px" width="50px"></a>
+     <a title="Facebook" href="http://www.facebook.com"><img src="twitter.jpg" height="50px" width="50px"></a>
+     <a title="Facebook" href="http://www.facebook.com"><img src="gmail.jpg" height="50px" width="50px"></a>
+    </div>
+</footer>
+
+</body>
+</html>
