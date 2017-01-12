@@ -1,0 +1,170 @@
+
+.navbar {
+    margin-bottom: 50px;  
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a{
+    background-color: dodgerblue !important;
+    text-shadow: 2px 1px 1px #000000;
+    transition: 0.6s;
+}
+
+#bInic{
+    background-color: black;
+}
+
+#bEst{
+    background-color: antiquewhite;
+}
+
+#bCont{
+    background-image: url(img/difuminado.jpg);
+}
+div.jumbotron {
+    margin-top: 10px;
+    background-color: royalblue;
+    color: whitesmoke;
+    border-bottom-style: outset;
+    border-bottom-width: thick;
+    border-bottom-color: darkblue;
+}
+
+#jumbText{
+   font-size: 600%;
+   text-shadow: 3px 2px 2px #000000
+}
+
+@media (max-width: 600px) {
+    .jumbotron h1{
+        display:none;
+    }    
+}
+    
+
+footer {
+    background-color: beige;
+    padding: 25px;
+    min-width: 450px;
+}
+
+.panel-footer h1, .panel-footer h2{
+    color: bisque;
+}
+    
+.carousel-inner img {
+    width: 100%; 
+    margin: auto;
+    min-height:200px;
+      
+ }
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.carousel-caption h1, .carousel-caption h3{
+    text-shadow: 3px 2px 2px #000000;
+}
+
+ #fEst {
+    background-color:black;
+    color: aliceblue; 
+    }
+
+
+div.panel{ 
+    text-align: center;
+    border-style: ridge;
+    border-color:darkslateblue;
+    border-radius: 8px;
+    border-width:thick;
+    min-width: 420px;
+}
+
+div.panel-heading{
+    font-size: 2em;
+}
+
+div.panel-body{
+    padding: 0px;
+}
+
+div.panel-footer{
+    background-color: black;
+    border-top: 1px solid black;
+}
+
+input[type=date] {
+    width:50%;
+    font-size: 25px;
+    text-transform:uppercase;
+    border-style:groove;
+    border-color:deepskyblue;
+    margin-bottom: 3px;    
+}
+
+input[type=submit] {    
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color:deepskyblue;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px grey;
+}
+
+input[type=submit]:hover {
+    background-color: dodgerblue;
+}
+
+input[type=submit]:active {
+  background-color: dodgerblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.alertify .ajs-dialog {
+    border: 3px groove dodgerblue !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: floralwhite !important;
+}
+
+.alertify .ajs-header {
+    background-color: royalblue !important;
+    color: whitesmoke !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 6px 6px 0 0;
+    font-size: 18px;
+}
+
+.alertify .ajs-footer button{
+    background-color: royalblue;
+    color: whitesmoke !important;
+    text-shadow: 3px 2px 2px #000000;
+    border: 2px solid darkblue;
+}
+
+.alertify .ajs-footer button:hover{
+    background-color: mediumblue;
+    color: whitesmoke !important;
+    text-shadow: 3px 2px 2px #000000;
+    border: 2px solid darkblue;
+}
+
+.alertify .ajs-body {
+    font-size: 30px;
+    font-weight: bolder;
+
+}
+
+.alertify .ajs-footer {
+    background-color: black !important;
+}

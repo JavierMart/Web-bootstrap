@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>San José - Estancia</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="estilo.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+  <script src="https://cdn.jsdelivr.net/alertifyjs/1.8.0/alertify.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    
+<script>      
+    window.onload=function() {
+                
+                var precio;
+
+                document.getElementById("calendario1").onsubmit = function(){
+                    precio = parseInt(document.getElementById("pdoble").textContent);
+                    calculo("start1","end1");
+                    return false;
+                }
+                document.getElementById("calendario2").onsubmit = function(){
+                    precio = parseInt(document.getElementById("ptriple").textContent);
+                    calculo("start2","end2");
+                    return false; 
+                } 
+                document.getElementById("calendario3").onsubmit = function(){
+                    precio = parseInt(document.getElementById("pcuadruple").textContent);
+                    calculo("start3","end3");
+                    return false;
+                }
+                document.getElementById("calendario4").onsubmit = function(){
+                    precio = parseInt(document.getElementById("psuite").textContent);
+                    calculo("start4","end4");
+                    return false;
+                }
+            
+                function calculo(inicio, final){
+                    var start = document.getElementById(inicio).value;
+                    var end = document.getElementById(final).value;
+
+                        if(start == "" || end == "") {
+                           alertify.alert('ERROR','Debe introducir una fecha de INICIO y una de FINALIZACIÓN')
+                           .setting({
+                              'label':'ACEPTAR',
+                              'onok': function(){ alertify.error('RESERVA CANCELADA');},
+                              'movable': false,
+                              'closable': false,
+                              'transition':'slide'
+                           });
+
+                         } else if(start > end) {
+                                alertify.alert('ERROR','La fecha de INICIO no puede ser posterior a la de FINALIZACIÓN')
+                                .setting({
+                                'label':'ACEPTAR',
+                                'onok': function(){ alertify.error('RESERVA CANCELADA');},
+                                'movable': false,
+                                'closable': false,    
+                                'transition':'slide'
+                           });
+                             
+                        } else {
+                            let resultado, diferencia, inic, fin, duracion, total=0;
+                            
+                            resultado = parseInt((Math.random() * 2));
+                            diferencia = moment(end).diff(start);
+                            duracion = Math.round(moment.duration(diferencia).asDays());
+                            
+                            for(var i=0; i<duracion; i++){
+                                var mult=1;
+                                var noche = moment(start);
+                                
+                                noche.add(i, 'days');
+                                //Sábado se corresponde con el 6 y Domingo con el 0
+                                if(noche.day() == 6 || noche.day() == 0){
+                                    mult *= 1.15;
+                                }
+                                //Junio: 5, Julio: 6, Agosto: 7, Septiembre: 8
+                                if(noche.month() == 5 || noche.month() == 6 || noche.month() == 7 || noche.month() == 8){
+                                    mult *= 1.40;
+                                }
+                                
+                                total = total + (precio * mult);
+                            }
+                            
+                            //Miramos si se ha reservado 1 sola noche o más de 7
+                            if(duracion == 1){
+                                total *= 1.2;
+                            } else if(duracion > 7){
+                                total *= 0.9;
+                            }
+                                                   
+                            total = Math.round(total);
+                            
+                            inic = moment(start).locale('es').format('dddd, LL');
+                            fin = moment(end).locale('es').format('dddd, LL');
+                            
+                            if(resultado == 1){
+                                alertify.confirm('CONFIRMAR RESERVA',`Reserva realizada con éxito para la habitación desde el ${inic} hasta el ${fin}. En total, por ${duracion} noche/s es un coste de ${total}€.`, function(){
+                                   alertify.success('RESERVA COMPLETADA');
+                                }, function(){
+                                    alertify.error('RESERVA CANCELADA');
+                                }).setting({
+                                    'labels':{
+                                        ok: 'ACEPTAR',
+                                        cancel: 'CANCELAR'
+                                    },
+                                    'movable': false,
+                                    'closable': false,
+                                    'transition':'slide'
+                                });
+
+                            }else{
+                                alertify.alert('HABITACIÓN YA RESERVADA',`Lo sentimos, la habitación ya está reservada entre el ${inic} y el ${fin}. En total, era un coste de ${total}€ por ${duracion} noche/s.`)
+                                .setting({
+                                    'label':'ACEPTAR',
+                                    'onok': function(){ alertify.error('RESERVA CANCELADA');},
+                                    'movable': false,
+                                    'closable': false,
+                                    'transition':'slide'
+                                });
+                            }
+                        }
+                }
+            }
+  </script>
+</head>
+    
+<body id="bEst">
+    
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="web.html">San José</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="web.html">Hotel</a></li>
+        <li class="active"><a href="estancia.html">Estancia</a></li>
+        <li><a href="Descripcion.html">Descripción</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1 id="jumbText"><strong>ESTANCIA</strong></h1>
+  </div>
+</div>
+    
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><strong>HABITACIÓN DOBLE</strong></div>
+        <div class="panel-body">
+            
+            <!-- CAROUSEL 1 -->
+            <div id="Carousel1" class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        
+      <div class="item active">
+        <img src="img/foto7.jpg" alt="Image">
+        <div class="carousel-caption">  
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="img/foto6.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>
+        
+      <div class="item">
+        <img src="img/foto5.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#Carousel1" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#Carousel1" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+            </div>
+            <!--END OF CAROUSEL -->    
+        </div>
+          
+        <div class="panel-footer">
+            <button class="btn btn-primary" id="hdoble" data-toggle="collapse" data-target="#calendario1">Inicie su reserva</button>
+            <div id="calendario1" class="collapse text-center">
+                <h1><strong id="pdoble">100</strong>€</h1>
+                    <h2>por <strong>NOCHE</strong></h2>
+                        <form>
+                            <input class="in" type="date" id="start1" min="2017-01-12">
+                            <input class="in" type="date" id="end1" max="2025-12-31"><br>
+                            <br>
+                            <input type="submit" value="Reservar"/>
+                        </form>
+                </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading"><strong>HABITACIÓN TRIPLE</strong></div>
+        <div class="panel-body">
+            
+            <!-- CAROUSEL 2 -->
+            <div id="Carousel2" class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="img/foto7.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="img/foto6.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>
+        
+      <div class="item">
+        <img src="img/foto5.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>    
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#Carousel2" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#Carousel2" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+            </div>
+            <!--END OF CAROUSEL -->
+            
+          </div>
+        <div class="panel-footer">
+            <button class="btn btn-primary" id="htriple" data-toggle="collapse" data-target="#calendario2">Inicie su reserva</button>
+                <div id="calendario2" class="collapse text-center">
+                    <h1><strong id="ptriple">200</strong>€</h1>
+                        <h2>por <strong>NOCHE</strong></h2>
+                            <form>
+                                <input type="date" id="start2" min="2017-01-12">
+                                <input type="date" id="end2" max="2025-12-31"><br>
+                                <br>
+                                <input type="submit" value="Reservar"/>
+                            </form>
+                </div>
+          </div>
+      </div>
+    </div>
+</div>
+    </div>
+    <br>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><strong>HABITACIÓN CUÁDRUPLE</strong></div>
+        <div class="panel-body">
+            
+            <!-- CAROUSEL 3 -->
+            <div id="Carousel3" class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="img/foto7.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="img/foto6.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>
+        
+      <div class="item">
+        <img src="img/foto5.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>    
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#Carousel3" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#Carousel3" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+            </div>
+            <!--END OF CAROUSEL -->
+            
+          </div>
+        <div class="panel-footer">
+            <button class="btn btn-primary" id="hcuadruple" data-toggle="collapse" data-target="#calendario3">Inicie su reserva</button>
+            <div id="calendario3" class="collapse text-center">
+                    <h1><strong id="pcuadruple">300</strong>€</h1>
+                        <h2>por <strong>NOCHE</strong></h2>
+                            <form>
+                                <input type="date" id="start3" min="2017-01-12">
+                                <input type="date" id="end3" max="2025-12-31"><br>
+                                <br>
+                                <input type="submit" value="Reservar"/>
+                            </form>
+            </div>
+        </div>
+    </div>
+ </div>
+
+    <div class="col-sm-6"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading"><strong>HABITACIÓN SUITE</strong></div>
+        <div class="panel-body">
+            
+            <!-- CAROUSEL 4 -->
+            <div id="Carousel4" class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="img/foto7.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="img/foto6.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>
+        
+      <div class="item">
+        <img src="img/foto5.jpg" alt="Image">
+        <div class="carousel-caption">
+        </div>      
+      </div>    
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#Carousel4" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#Carousel4" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+            </div>
+            <!--END OF CAROUSEL -->
+            
+          </div>
+        <div class="panel-footer">
+            <button class="btn btn-primary" id="hsuite" data-toggle="collapse" data-target="#calendario4">Inicie su reserva</button>
+            <div id="calendario4" class="collapse text-center">
+                    <h1><strong id="psuite">400</strong>€</h1>
+                        <h2>por <strong>NOCHE</strong></h2>
+                            <form>
+                                <input type="date" id="start4" min="2017-01-12">
+                                <input type="date" id="end4" max="2025-12-31"><br>
+                                <br>
+                                <input type="submit" value="Reservar"/>
+                            </form>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>  
+</div>
+<br>
+<br>
+
+<footer id="fEst" class="container-fluid text-center">
+  <h3>Si tiene algún problema con la reserva póngase en contacto con nosotros <a href="contacto.html" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-info-sign"></span> Contacto</a></h3>  
+</footer>
+
+</body>
+</html>
