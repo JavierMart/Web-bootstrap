@@ -1,44 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <title>San Jose</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="estilo.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-   
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-  
-    
-    footer {
-      background-color: beige;
-      padding: 25px;
-    }
-    
-  .carousel-inner img {
-      width: 100%; 
-      margin: auto;
-      min-height:200px;
-      
-  }
-
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none;
-    }
-  }
-
-
-  </style>
 </head>
-<body bgcolor="black"
+    
+<body id="bInic">
   
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -46,16 +20,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-     
+      <a class="navbar-brand" href="web.html">San José</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="web.html">Hotel San Jose</a></li>
-        <li><a href="#">Estancia</a></li>
+        <li class="active"><a href="web.html">Hotel</a></li>
+        <li><a href="estancia.html">Estancia</a></li>
         <li><a href="Descripcion.html">Descripción</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
       </ul>
     </div>
   </div>
@@ -74,32 +46,32 @@
       <div class="item active">
         <img src="img/foto1.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Vista completa de nuestras instalaciones</h3>
-          <p>Con su piscina exterior y nuestros jardines</p>
+          <h1>Vista completa de nuestras instalaciones</h1>
+          <h3>Con su piscina exterior y nuestros jardines</h3>
         </div>      
       </div>
 
       <div class="item">
         <img src="img/foto2.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Nuestras pistas de tennis</h3>
-          <p>A dispocición de cualquier cliente </p>
+          <h1>Nuestras pistas de tennis</h1>
+          <h3>A dispocición de cualquier cliente </h3>
         </div>      
       </div>
         
         <div class="item">
         <img src="img/foto3.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Nuestra piscina exterior</h3>
-          <p>Con bar en el exterior y deportes aquaticos para todos los públicos</p>
+          <h1>Nuestra piscina exterior</h1>
+          <h3>Con bar en el exterior y deportes aquaticos para todos los públicos</h3>
         </div>      
       </div>
         
          <div class="item">
         <img src="img/foto4.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Nuestras salas de masajes</h3>
-          <p>Para descansar y relajarse </p>
+          <h1>Nuestras salas de masajes</h1>
+          <h3>Para descansar y relajarse </h3>
         </div>      
       </div>
     </div>
@@ -142,9 +114,8 @@
 
     <br>
 
-<footer class="container-fluid text-center">
+<footer id="fInic" class="container-fluid text-center">
 
-    
     <div class="container">
   <div class="row">
     <div class="col-sm-4">
@@ -155,7 +126,7 @@
     </div>
     <div class="col-sm-4">
       <h3>Follow Us</h3>
-           <a title="Facebook" href="http://www.facebook.com"><img src="img/facebook.png" height="50px" width="50px"></a>
+     <a title="Facebook" href="http://www.facebook.com"><img src="img/facebook.png" height="50px" width="50px"></a>
      <a title="Instagram" href="http://www.instragram.com"><img src="img/instragram.jpg" height="50px" width="50px"></a>
      <a title="Facebook" href="http://www.facebook.com"><img src="img/twitter.jpg" height="50px" width="50px"></a>
      <a title="Facebook" href="http://www.facebook.com"><img src="img/gmail.jpg" height="50px" width="50px"></a>
