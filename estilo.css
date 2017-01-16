@@ -48,14 +48,13 @@ footer {
 }
 
 .panel-footer h1, .panel-footer h2{
-    color: bisque;
+    color: whitesmoke;
 }
     
 .carousel-inner img {
     width: 100%; 
     margin: auto;
-    min-height:200px;
-      
+    max-height: 250px;
  }
 
 @media (max-width: 600px) {
@@ -88,6 +87,7 @@ div.panel-heading{
 }
 
 div.panel-body{
+    max-height: 300px;
     padding: 0px;
 }
 
