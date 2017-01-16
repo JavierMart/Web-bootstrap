@@ -1,43 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>hotel</title>
+  <title>San José - Descripción</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="estilo.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-  <style>
-
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-      body {
-          background-color: #F5D0A9;
-      }
-    
-    
-    footer {
-      background-color: beige;
-      padding: 25px;
-    }
-     
-    .carousel-inner img {
-      width: 100%; 
-      margin: auto;
-      min-height:200px;
-  }
-
-    @media (max-width: 600px) {
-      .carousel-caption {
-        display: none; 
-        }
-    }
-      
-  </style>
 </head>
+    
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -48,16 +20,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="web.html">San Jose</a>
+      <a class="navbar-brand" href="web.html">San José</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="Descripcion.html">Descripción</a></li>
-        <li><a href="Estancia.html">Estancia</a></li>
-        <li><a href="Contacto.html">Contacto</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      
+        <li><a href="web.html">Hotel</a></li>
+        <li><a href="estancia.html">Estancia</a></li>
+        <li class="active"><a href="Descripcion.html">Descripción</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </div>
   </div>
@@ -76,23 +46,23 @@
       <div class="item active">
         <img src="img/foto12.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Hotel San Jose</h3>
-          <p>Vista principal.</p>
+          <h1>Hotel San Jose</h1>
+          <h3>Vista principal.</h3>
         </div>      
       </div>
 
       <div class="item">
         <img src="img/foto6.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Nuestro restaurante</h3>
-          <p>Con sus preciosas vistas</p>
+          <h1>Nuestro restaurante</h1>
+          <h3>Con sus preciosas vistas</h3>
         </div>      
       </div>
         
       <div class="item">
         <img src="img/foto7.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Una de nuestras suites</h3>
+          <h1>Una de nuestras suites</h1>
           <p></p>
         </div>      
       </div>    
